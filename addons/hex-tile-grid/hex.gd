@@ -4,8 +4,8 @@
 class_name Hex
 extends RefCounted
 
-## The size of the Hex. This is the distance from the center of the hexagon to the corners.
-## Due to Hexagonal gemotry, the width and the height are not the same. One of the dimentions will be [code]sqrt(3) * size[/code] and the other [code]2 * size[/code].
+## The distance from the hexagon's center to its corners.
+## In the context of hexagonal geometry, the dimensions of width and height are not identical. One of the dimentions will be [code]sqrt(3) * size[/code] while the other will be [code]2 * size[/code].
 @export_storage var size: float = 1.0
 
 ## Coordinates in the axial coordinates system.
@@ -14,23 +14,25 @@ extends RefCounted
 
 ## Coordinates in the cube coordinates system.
 ## The values of x and y are the same for the cube and axial coordinate system. In the cube system, z is defined as z = -x - y
-var cube_coordinates: Vector3: get = _get_cube_coordinates
+var cube_coordinates: Vector3:
+	get = get_cube_coordinates
 
 ## Coordinates in standard cartesian 2D space
-var cartesian_coordinates: Vector2
+var cartesian_coordinates: Vector2:
+	get = get_cartesian_coordinates, set = set_cartesian_coordinates
 
 #region Setters and Getters
 
-func _get_cube_coordinates() -> Vector3:
+func get_cube_coordinates() -> Vector3: 
 	return Vector3(axial_coordinates.x, axial_coordinates.y, -axial_coordinates.x - axial_coordinates.y)
 
 
-func _get_cartesian_coordinates() -> Vector2:
+func get_cartesian_coordinates() -> Vector2:
 	return Vector2((sqrt(3) * axial_coordinates.x) + ((sqrt(3) / 2.0) * axial_coordinates.y), \
 	1.5 * axial_coordinates.y) * size
 
 
-func _set_cartesian_coordinates(new_coordinates: Vector2) -> void:
+func set_cartesian_coordinates(new_coordinates: Vector2) -> void:
 	axial_coordinates.x = (((sqrt(3) / 3.0 * new_coordinates.x)) - ((1 / 3.0) * new_coordinates.y)) / size
 	axial_coordinates.y = ((2 / 3.0) * new_coordinates.y) / size
 #endregion

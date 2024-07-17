@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://u1fsg47wk3x2"]
+
+[ext_resource type="Script" path="res://addons/hex-tile-grid/hex_tile_grid_layer.gd" id="1_h5um7"]
+[ext_resource type="Script" path="res://addons/hex-tile-grid/hex_3d.gd" id="2_vpft7"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="HexTileGridLayer" type="Node3D" parent="."]
+script = ExtResource("1_h5um7")
+
+[node name="Hex3D" type="Node3D" parent="."]
+script = ExtResource("2_vpft7")
+
+[node name="Hex3D2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.73205, 0, 0)
+script = ExtResource("2_vpft7")
+axial_coord = Vector2(1, 0)
+
+[node name="Hex3D3" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.866025, 0, 1.5)
+script = ExtResource("2_vpft7")
+axial_coord = Vector2(-3.76867e-07, 1)
+
+[node name="Hex3D4" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.866025, 0, 1.5)
+script = ExtResource("2_vpft7")
+axial_coord = Vector2(-1, 1)
+
+[node name="Hex3D5" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.73205, 0, 0)
+script = ExtResource("2_vpft7")
+axial_coord = Vector2(-1, 0)
+
+[node name="Hex3D6" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.866025, 4.76837e-07, -1.5)
+script = ExtResource("2_vpft7")
+axial_coord = Vector2(3.76867e-07, -1)
+
+[node name="Hex3D7" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.866025, 0.00690174, -1.5)
+script = ExtResource("2_vpft7")
+axial_coord = Vector2(1, -1)
