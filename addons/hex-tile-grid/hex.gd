@@ -21,6 +21,16 @@ var cube_coordinates: Vector3:
 var cartesian_coordinates: Vector2:
 	get = get_cartesian_coordinates, set = set_cartesian_coordinates
 
+
+## Utility function that returns all the points composing the hex
+func get_hex_points() -> PackedVector2Array:
+	# TODO
+	var points := PackedVector2Array()
+	for angle: int in range(0, 360, 60):
+		points.append(Vector2(cos(deg_to_rad(angle)), sin(deg_to_rad(angle))))
+	return points
+
+
 #region Setters and Getters
 
 func get_cube_coordinates() -> Vector3: 
