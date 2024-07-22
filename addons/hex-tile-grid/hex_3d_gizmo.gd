@@ -17,19 +17,13 @@ func _redraw(gizmo: EditorNode3DGizmo) -> void:
 	gizmo.clear()
 	
 	var hex3d := gizmo.get_node_3d() as Hex3D
-	
+	var points := hex3d.hex.get_hex_points()	
 	var lines := PackedVector3Array()
-	lines.push_back(Vector3(0.866, 0, 0.5) * hex3d.size)
-	lines.push_back(Vector3(0, 0, 1) * hex3d.size)
-	lines.push_back(Vector3(0, 0, 1) * hex3d.size)
-	lines.push_back(Vector3(-0.866, 0, 0.5) * hex3d.size)
-	lines.push_back(Vector3(-0.866, 0, 0.5) * hex3d.size)
-	lines.push_back(Vector3(-0.866, 0, -0.5) * hex3d.size)
-	lines.push_back(Vector3(-0.866, 0, -0.5) * hex3d.size)
-	lines.push_back(Vector3(0, 0, -1) * hex3d.size)
-	lines.push_back(Vector3(0, 0, -1) * hex3d.size)
-	lines.push_back(Vector3(0.866, 0, -0.5) * hex3d.size)
-	lines.push_back(Vector3(0.866, 0, -0.5) * hex3d.size)
-	lines.push_back(Vector3(0.866, 0, 0.5) * hex3d.size)
+	var num_points := points.size()
+	for i in range(num_points):
+		var line_start = Vector3(points[i].x, 0, points[i].y)
+		var line_end = Vector3(points[(i+1) % num_points].x, 0, points[(i+1) % num_points].y)
+		lines.append(line_start)
+		lines.append(line_end)
 	gizmo.add_lines(lines, get_material("hex_outline", gizmo))
 	

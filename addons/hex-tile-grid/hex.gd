@@ -27,7 +27,7 @@ func get_hex_points() -> PackedVector2Array:
 	# TODO
 	var points := PackedVector2Array()
 	for angle: int in range(0, 360, 60):
-		points.append(Vector2(cos(deg_to_rad(angle)), sin(deg_to_rad(angle))))
+		points.append(Vector2(sin(deg_to_rad(angle)), cos(deg_to_rad(angle))) * size)
 	return points
 
 
