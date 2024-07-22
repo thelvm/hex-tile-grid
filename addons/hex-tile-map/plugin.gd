@@ -1,7 +1,7 @@
 @tool
 extends EditorPlugin
 
-var hex3DGizmo = preload("res://addons/hex-tile-grid/hex_3d_gizmo.gd").new()
+var hex3DGizmo = preload("res://addons/hex-tile-map/hex_3d_gizmo.gd").new()
 
 
 func _enter_tree() -> void:

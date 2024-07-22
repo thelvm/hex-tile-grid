@@ -1,7 +1,7 @@
 ## A Hex that positions itself in 3D space.
 ## The local Y axis is independent of the position on the hex grid and can be set manually.
 @tool
-@icon("res://addons/hex-tile-grid/hex_3d.svg")
+@icon("res://addons/hex-tile-map/hex_3d.svg")
 class_name Hex3D
 extends Node3D
 
